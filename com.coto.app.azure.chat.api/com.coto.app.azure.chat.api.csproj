@@ -110,12 +110,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="pages\api-call.html" />
+    <Content Include="pages\Index.html" />
+    <Content Include="pages\ligth-client.html" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\client.js" />
+    <Content Include="Scripts\inspinia.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery.metisMenu.js" />
     <Content Include="Scripts\jquery.signalR-2.3.0.js" />
     <Content Include="Scripts\jquery.signalR-2.3.0.min.js" />
+    <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -126,14 +144,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\GetMessageHelper.cs" />
     <Compile Include="Helpers\HubContextHelper.cs" />
+    <Compile Include="Helpers\MessageFactory.cs" />
+    <Compile Include="Helpers\SingConn.cs" />
     <Compile Include="Interfaces\IMessage.cs" />
+    <Compile Include="Models\CaseMessage.cs" />
     <Compile Include="Models\Channel.cs" />
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\ImageMessage.cs" />
     <Compile Include="Models\TextMessage.cs" />
     <Compile Include="Models\TrasnportMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceConnector\MessageGetters.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

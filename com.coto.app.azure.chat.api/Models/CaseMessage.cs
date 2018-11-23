@@ -6,14 +6,14 @@ using System.Web;
 
 namespace com.coto.app.azure.chat.api.Models
 {
-    public class TextMessage : IMessage
+    public class CaseMessage : IMessage
     {
         public string Type
         {
-            get { return "text"; }
+            get { return "case"; }
         }
-        public string Title { get; set; }
-        public string Text { get; set; }
-        public string Id { get; set; }
+        public string Ref { get; set; }
+        public string RefId { get; set; }
+
     }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -8,11 +8,22 @@
 </head>
 <body>
   <!-- 3 setup a container element -->
-  <div id="photo">
+  <div>
     <div class="col-md-6">
 		<label>Envia un mensaje de prueba a la API de chat SignalR</label>
-		<input type="text" name="message" class="form-control" placeholder="Mensaje">
 	</div>
+      <div class="col-md-6">
+          <input type="text" name="name" class="form-control" placeholder="Nombre">
+      </div>
+      <div class="col-md-6">
+          <input type="text" name="sendto" class="form-control" placeholder="Destinatario">
+      </div>
+      <div class="col-md-6">
+          <input type="text" name="message" class="form-control" placeholder="Mensaje">
+      </div>
+      <div class="col-md-6">
+          <input type="button" class="form-control" value="Send" name="send">
+      </div>
   </div>
   
   <!-- 4 include the jQuery library -->
@@ -23,25 +34,29 @@
 //$('input[name=message]').val()
 
  	$(function () {
-	
-		var message = {};
-			message.Type = "text";
-			message.Title = "hola";
-			message.Text = "hola mundo";
-			message.SendTo  = 'pepe';
-		
-			$.ajax({
-				  url: 'http://localhost:50014/api/message/Send',
-				  dataType: 'json',
-				  method: 'POST',
-				  data : message,
-				  success: function(response) {
-					  console.log("success!", response);
-				  },
-				  error : function(error){
-					console.log("error!", error);
-				  },
-			});
+
+          $('input[name=send]').click(function () {
+
+              var message = {};
+              message.Type = "text";
+              message.Title = $('input[name=message]').val();
+              message.Text = $('input[name=message]').val();
+              message.SendTo = $('input[name=sendto]').val();
+              message.SendFrom = $('input[name=name]').val();
+
+              $.ajax({
+                  url: 'http://localhost:50014/api/message/Send',
+                  dataType: 'json',
+                  method: 'POST',
+                  data: message,
+                  success: function (response) {
+                      console.log("success!", response);
+                  },
+                  error: function (error) {
+                      console.log("error!", error);
+                  },
+              });
+          });
 	});
  </script>
 </body>

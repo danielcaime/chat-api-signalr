@@ -11,6 +11,7 @@ namespace com.coto.app.azure.chat.api.Models
         public string Type { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
+        public string SendFrom { get; set; }
         public string SendTo { get; set; }
-    }
+    }   
 }

@@ -18,13 +18,16 @@ namespace com.coto.app.azure.chat.api.Controllers
         [HttpPost]
         public async Task<string> Send(TrasnportMessage req)
         {
-            var message = new TextMessage { Text = req.Text, Title = req.Title };
-            var name = req.SendTo;
             try
             {
-                var user = ChatHub.connList.Find(c => c.Name == "pepe");
+                var message = MessageFactory.MessageCreator(req);
 
-                HubContextHelper.SendMessage(user, message);
+                //verificar de que manera vamos a buscar a los usuarios conectados: id, connectionId, customerId, etc
+                var user = ChatHub.connList.Find(c => c.Name == req.SendTo);
+                //validar si el usuario esta conectado por si es necesario un reintento del mensaje
+                //user.isConnected
+                
+                HubContextHelper.SendMessage(user, message, req.SendFrom);
 
                 return String.Format("Success ");
             }

@@ -9,10 +9,12 @@ namespace com.coto.app.azure.chat.api.Models
     {
         public string ConnectionID { get; set; }
         public bool isConnected { get; set; }
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
         public string Name { get; set; }
+        public string SubscriptionId { get; set; }
+        public  string RefId{ get; set; }
 
-        public Connection(string connectionId, int customerid)
+        public Connection(string connectionId, string customerid)
         {
             this.ConnectionID = connectionId;
             CustomerId = customerid;
